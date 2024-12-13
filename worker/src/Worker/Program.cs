@@ -113,7 +113,8 @@ namespace Worker
                 try
                 {
                     Console.Error.WriteLine("Connecting to redis");
-                    return ConnectionMultiplexer.Connect(ipAddress);
+                    // return ConnectionMultiplexer.Connect(ipAddress);
+                    return ConnectionMultiplexer.Connect("redis,password=Manage12345!");
                 }
                 catch (RedisConnectionException)
                 {
@@ -128,7 +129,7 @@ namespace Worker
                 .Result
                 .AddressList
                 .First(a => a.AddressFamily == AddressFamily.InterNetwork)
-                .ToString() + """,password=Manage12345!""";
+                .ToString();
 
         private static void UpdateVote(NpgsqlConnection connection, string voterId, string vote)
         {
