@@ -30,7 +30,9 @@ var pool = new pg.Pool({
 async.retry(
   {times: 1000, interval: 1000},
   function(callback) {
+    console.log("Before pool.connect");
     pool.connect(function(err, client, done) {
+      console.log("At start of pool.connect");
       if (err) {
         console.error("Waiting for db");
       }
