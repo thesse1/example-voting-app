@@ -128,7 +128,7 @@ namespace Worker
                 .Result
                 .AddressList
                 .First(a => a.AddressFamily == AddressFamily.InterNetwork)
-                .ToString() + """,password=Master12345!""";
+                .ToString() + """,password=Manage12345!""";
 
         private static void UpdateVote(NpgsqlConnection connection, string voterId, string vote)
         {
